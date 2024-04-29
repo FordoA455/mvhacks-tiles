@@ -73,6 +73,7 @@ public class Screen extends JPanel implements KeyListener, ActionListener {
       g.drawString("MVHacks Tiles (features the directors)", 200, 200);
       g.drawString("enjoy the interesting background music selection", 200, 250);
       g.drawString("basically piano tiles but you press 1234 and 7890", 200, 300);
+      g.drawString("you get 10 lives", 200, 300);
     } else if (gameState == 1) {
       title.setVisible(false);
       // System.out.println(keysPressed.get(0));
@@ -110,9 +111,10 @@ public class Screen extends JPanel implements KeyListener, ActionListener {
       }
 
       g.setColor(Color.WHITE);
-      g.fillRect(500, 0, 200, 20);
+      g.fillRect(500, 0, 200, 40);
       g.setColor(Color.black);
-      g.drawString("Score:"+score, 510, 10);
+      g.drawString("Score: " + score, 510, 10);
+      g.drawString("Lives: " + lives, 510, 30);
 
       g.drawString("1", 60, 640);
       g.drawString("2", 210, 640);
