@@ -37,7 +37,7 @@ public class Screen extends JPanel implements KeyListener, ActionListener {
     }
 
     for (int i = 0; i < notes.length; i++) {
-      int randomY = (int)(-1800*Math.random());
+      int randomY = (int)(-2000*Math.random());
       notes[i] = new Note(i, randomY); 
     }
 
@@ -70,11 +70,9 @@ public class Screen extends JPanel implements KeyListener, ActionListener {
       g.setColor(new Color(79, 70, 74));
       g.fillRect(0, 0, 1366, 768);
       g.setColor(Color.WHITE);
-      g.setFont(new Font("SansSerif", 18, Font.BOLD));
-      g.drawString("MVHacks Tiles (features the directors)", 300, 200);
-      g.setFont(new Font("SansSerif", 14, Font.PLAIN));
+      g.drawString("MVHacks Tiles (features the directors)", 200, 200);
       g.drawString("enjoy the interesting background music selection", 200, 250);
-      g.drawString("basically piano tiles but you press 1234 and 7890", 195, 300);
+      g.drawString("basically piano tiles but you press 1234 and 7890", 200, 300);
     } else if (gameState == 1) {
       title.setVisible(false);
       // System.out.println(keysPressed.get(0));
@@ -116,7 +114,14 @@ public class Screen extends JPanel implements KeyListener, ActionListener {
       g.setColor(Color.black);
       g.drawString("Score:"+score, 510, 10);
 
-      // 
+      g.drawString("1", 60, 640);
+      g.drawString("2", 210, 640);
+      g.drawString("3", 360, 640);
+      g.drawString("4", 510, 640);
+      g.drawString("7", 660, 640);
+      g.drawString("8", 810, 640);
+      g.drawString("9", 960, 640);
+      g.drawString("0", 1110, 640);
     } else if (gameState == 2) {
       // g.setColor(Color.BLACK);
       // g.setFont(new Font("SansSerif", 18, Font.BOLD));
@@ -236,7 +241,7 @@ public class Screen extends JPanel implements KeyListener, ActionListener {
   public void animate() {
     while (true) {
       try {
-        Thread.sleep(40);
+        Thread.sleep(47);
 
       } catch (InterruptedException ex) {
           Thread.currentThread().interrupt();
