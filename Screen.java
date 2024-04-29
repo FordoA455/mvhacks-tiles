@@ -19,6 +19,7 @@ public class Screen extends JPanel implements KeyListener, ActionListener {
   private final int width = 1200;
   private final int height = 700;
   private int score;
+  private int lives = 10;
   private Note[] notes = new Note[8];
   private int gameState = 0; // 0 = start, 1 = play, 2 = lose
   private final String music = "Arthur_Rickroll.wav";
@@ -60,6 +61,10 @@ public class Screen extends JPanel implements KeyListener, ActionListener {
   public void paintComponent(Graphics g) {
     super.paintComponent(g);
 
+    if (lives == 0) {
+      gameState = 2;
+    }
+
     if (gameState == 0) {
       title.setVisible(true);
       g.setColor(new Color(79, 70, 74));
@@ -100,6 +105,7 @@ public class Screen extends JPanel implements KeyListener, ActionListener {
         }
         notes[i].incrementY(10);
         if ((notes[i].getY()) >= 700) {
+          lives--;
           notes[i].reset();
         }
         notes[i].drawMe(g);
@@ -112,11 +118,15 @@ public class Screen extends JPanel implements KeyListener, ActionListener {
 
       // 
     } else if (gameState == 2) {
-      g.setFont(new Font("SansSerif", 18, Font.BOLD));
-      g.drawString("You lost.", 300, 200);
-      g.setFont(new Font("SansSerif", 14, Font.PLAIN));
-      g.drawString("enjoy the interesting background music selection", 200, 250);
-      g.drawString("basically piano tiles but you press 1234 and 7890", 195, 300);
+      // g.setColor(Color.BLACK);
+      // g.setFont(new Font("SansSerif", 18, Font.BOLD));
+      // g.drawString("You lost.", 300, 200);
+      // g.setFont(new Font("SansSerif", 14, Font.PLAIN));
+      // g.drawString("thanks for playing!", 200, 250);
+      // g.drawString("hopefully it was funny", 195, 300);
+      title.setForeground(Color.BLACK);
+      title.setText("You lost.");
+      title.setVisible(true);
     }
 
     // try {
